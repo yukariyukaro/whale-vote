@@ -4,13 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff">
-  <title>投票说明 · 如何评价 B 站评论区扎堆的鲸鱼娘？</title>
+  <title>投票规则、隐私与许可｜DeepSeek 鲸鱼娘评论区投票</title>
+  <meta name="description" content="了解 DeepSeek 鲸鱼娘评论区匿名投票的计票规则、浏览器与网络去重限制、隐私保护、插画许可及非官方声明。无需登录，不收集账号、手机号或邮箱。">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://whale-vote.pages.dev/about">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="DeepSeek 鲸鱼娘评论区投票">
+  <meta property="og:url" content="https://whale-vote.pages.dev/about">
+  <meta property="og:title" content="投票规则、隐私与许可｜DeepSeek 鲸鱼娘评论区投票">
+  <meta property="og:description" content="了解 DeepSeek 鲸鱼娘评论区匿名投票的计票规则、浏览器与网络去重限制、隐私保护、插画许可及非官方声明。无需登录，不收集账号、手机号或邮箱。">
+  <meta property="og:image" content="https://whale-vote.pages.dev/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="投票规则、隐私与许可｜DeepSeek 鲸鱼娘评论区投票">
+  <meta name="twitter:description" content="了解 DeepSeek 鲸鱼娘评论区匿名投票的计票规则、浏览器与网络去重限制、隐私保护、插画许可及非官方声明。无需登录，不收集账号、手机号或邮箱。">
+  <meta name="twitter:image" content="https://whale-vote.pages.dev/assets/og.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","url":"https://whale-vote.pages.dev/about","name":"投票规则、隐私与许可｜DeepSeek 鲸鱼娘评论区投票","description":"了解 DeepSeek 鲸鱼娘评论区匿名投票的计票规则、浏览器与网络去重限制、隐私保护、插画许可及非官方声明。无需登录，不收集账号、手机号或邮箱。","inLanguage":"zh-CN","isPartOf":{"@id":"https://whale-vote.pages.dev/#website"}}</script>
   <link rel="icon" href="./assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <main class="prose-page">
-    <p class="back"><a href="./index.html">← 回到投票</a></p>
+    <p class="back"><a href="./">← 回到投票</a></p>
     <h1 class="prose-title">投票说明</h1>
 
     <h2>这是什么</h2>
@@ -19,8 +34,10 @@
     <h2>怎么计票</h2>
     <ul>
       <li>匿名投票，不绑定 B 站账号，不收集手机号或邮箱。</li>
-      <li>一个浏览器一票；同一 IP 每天最多 25 次投票请求，超过会被限流。</li>
-      <li>启用 Cloudflare Turnstile 人机验证；检测到异常流量时，计票可能暂时冻结。</li>
+      <li>浏览器 Cookie 与网络标识双重去重：同一公网 IPv4 地址或 IPv6 /64 网络，在本次投票中最多计入一票。换浏览器、无痕模式或清 Cookie，不会解除网络去重。</li>
+      <li>这不等于实名一人一票：家庭、学校或公司共用出口可能被当作一个网络；切换网络或代理仍可能绕过。旧版票数保留，无法追溯没有网络标识的历史票。</li>
+      <li>同一网络每分钟最多 10 次新投票尝试；数据库唯一索引会原子拦截并发重复提交。</li>
+      <li>无需登录或真人验证；依靠浏览器与网络匿名标识去重、请求限频。管理员可在异常时暂停计票。</li>
       <li>票数由本站后端聚合（Cloudflare Pages Functions + D1），不依赖页面上的本地数字。</li>
     </ul>
     <p>不绑定账号的代价是：无法保证绝对的“一人一票”。结果只代表参与者，不代表全站民意，也不构成统计意义上的抽样调查。</p>
@@ -31,7 +48,7 @@
     <h2>隐私</h2>
     <ul>
       <li>Cookie 里只有一个随机 ID 和签名，用来避免同一浏览器重复投票。</li>
-      <li>IP 只以加盐哈希的形式用于频率限制，不保存原始 IP；哈希按天轮换。</li>
+      <li>公网 IP / IPv6 网络只以带服务端密钥的 HMAC 标识保存，用于本次投票的跨浏览器去重，不保存原始 IP。尝试限频另保存该网络当前分钟的计数；去重标识不会每天重置。</li>
       <li>不接入第三方统计脚本，不投放广告。</li>
       <li>站点托管在 Cloudflare，访问日志由 Cloudflare 按其政策处理。</li>
     </ul>
@@ -46,7 +63,7 @@
     <h2>联系</h2>
     <p>问题、建议或数据删除请求，请到 <a href="https://github.com/yukariyukaro/whale-vote/issues" target="_blank" rel="noopener">GitHub Issues</a>。</p>
 
-    <p class="updated">更新于 2026-10-21</p>
+    <p class="updated">更新于 2026-10-22</p>
   </main>
 </body>
 </html>

@@ -2,10 +2,12 @@ CREATE TABLE IF NOT EXISTS votes (
   voter_id TEXT PRIMARY KEY,
   side TEXT NOT NULL CHECK (side IN ('left', 'right')),
   created_at INTEGER NOT NULL,
-  country TEXT
+  country TEXT,
+  network_key TEXT
 );
 
 CREATE INDEX IF NOT EXISTS idx_votes_created ON votes(created_at);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_votes_network_key ON votes(network_key) WHERE network_key IS NOT NULL;
 
 CREATE TABLE IF NOT EXISTS rate (
   key TEXT PRIMARY KEY,

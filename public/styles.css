@@ -23,7 +23,7 @@ body { margin: 0; background: var(--bg); }
 main {
   width: min(900px, 100%);
   margin: 0 auto;
-  padding: clamp(32px, 7vh, 76px) 24px 28px;
+  padding: clamp(20px, 4vh, 56px) 24px 28px;
 }
 
 .intro { margin: 0; }
@@ -36,7 +36,7 @@ main {
 }
 
 h1 {
-  margin: 0 0 clamp(28px, 5vw, 48px);
+  margin: 0 0 clamp(20px, 3vw, 36px);
   text-align: center;
   font-size: clamp(21px, 3.3vw, 32px);
   font-weight: 650;
@@ -46,7 +46,7 @@ h1 {
 }
 h1 span { color: var(--blue); }
 
-.results { margin-bottom: 12px; }
+.results { margin-bottom: 10px; }
 .numbers {
   display: flex;
   justify-content: space-between;
@@ -86,6 +86,8 @@ article { min-width: 0; display: flex; flex-direction: column; }
   overflow: hidden;
   width: 100%;
   aspect-ratio: 1 / 1;
+  max-height: clamp(150px, 40vh, 360px);
+  max-height: clamp(150px, 40svh, 360px);
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -94,11 +96,11 @@ article { min-width: 0; display: flex; flex-direction: column; }
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   min-height: 0;
 }
 .caption {
-  margin: 10px 0 12px;
+  margin: 8px 0 10px;
   color: var(--muted);
   font-size: 12px;
   letter-spacing: .04em;
@@ -124,29 +126,28 @@ button.selected { background: var(--blue); color: #fff; border-color: var(--blue
 
 #status {
   min-height: 20px;
-  margin: 22px 0 0;
+  margin: 16px 0 0;
   text-align: center;
   color: #596984;
   font-size: 13px;
   line-height: 1.6;
 }
 #status.error { color: #b5473a; }
+.request-note { text-align: center; color: var(--muted); font-size: 12px; line-height: 1.7; margin: 10px 0 0; }
 
-#turnstile-wrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 14px;
-  min-height: 65px;
-}
-#turnstile-wrap[hidden] { display: none; }
 
 footer {
-  margin-top: clamp(34px, 7vh, 64px);
-  padding-top: 22px;
+  margin-top: clamp(20px, 4vh, 40px);
+  padding-top: 18px;
   border-top: 1px solid var(--line);
   text-align: center;
 }
-.feedback { margin: 0 0 12px; font-size: 14px; }
+.feedback {
+  margin: 15px 0 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+}
 .feedback a { color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(35, 89, 184, .25); }
 .feedback a:hover { border-bottom-color: var(--blue); }
 .fine { margin: 0 0 6px; color: var(--muted-2); font-size: 12px; line-height: 1.7; }
@@ -166,7 +167,8 @@ footer {
   main { padding-inline: 16px; }
   .choices { gap: 12px; }
   .art { border-radius: 7px; }
-  .caption { font-size: 11px; margin: 8px 0 10px; }
+  .caption { font-size: 11px; margin: 7px 0 9px; }
+  .feedback { font-size: 13.5px; }
   .numbers strong { font-size: 21px; }
   button { min-height: 44px; font-size: 13px; }
   .fine { font-size: 11px; }

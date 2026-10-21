@@ -4,9 +4,17 @@
   "version": "0.1.0",
   "description": "A minimal, neutral community vote about whale-chan in Bilibili comments.",
   "scripts": {
-    "dev": "npx wrangler pages dev public --d1 DB --port 8788",
+    "dev": "wrangler pages dev public --port 8788 --persist-to .wrangler/local-dev",
     "deploy": "npx wrangler pages deploy public --project-name whale-vote",
-    "db:init": "npx wrangler d1 execute whale-vote --file=./schema.sql --remote",
-    "db:init:local": "npx wrangler d1 execute whale-vote --local --file=./schema.sql"
+    "db:init": "wrangler d1 migrations apply whale-vote --remote",
+    "db:init:local": "wrangler d1 migrations apply whale-vote --local --persist-to .wrangler/local-dev",
+    "db:migrate": "wrangler d1 migrations apply whale-vote --remote",
+    "db:migrate:local": "wrangler d1 migrations apply whale-vote --local --persist-to .wrangler/local-dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4.151.3"
+  },
+  "dependencies": {
+    "ipaddr.js": "^2.4.0"
   }
 }
