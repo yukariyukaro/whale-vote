@@ -2,6 +2,11 @@
 
 一个极简、非官方、匿名的社区投票。页面只有标题、两张分别代表两种感受的插画、两个按钮，以及一个前往 B 站官方反馈论坛的链接。
 
+## 线上地址
+
+- 正式投票（Cloudflare Pages + D1 + Turnstile）：https://whale-vote.pages.dev
+- 静态预览（GitHub Pages，投票禁用）：https://yukariyukaro.github.io/whale-vote/
+
 ## 为什么不是纯静态
 
 纯静态页没法做全站计票，也没法防刷。这个项目用 **Cloudflare Pages Functions + D1**：
@@ -10,7 +15,7 @@
 - `GET /api/tally`：返回聚合票数和冻结状态
 - `schema.sql`：`votes` / `rate` / `meta` 三张表
 
-GitHub Pages 只能托管静态页，不能运行 Functions；所以本仓库的 GitHub Pages 是**静态预览**，正式投票请部署到 Cloudflare Pages。
+GitHub Pages 只能托管静态页，不能运行 Functions；所以本仓库的 GitHub Pages 是**静态预览**，正式投票在 Cloudflare Pages。
 
 ## 本地开发
 

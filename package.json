@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "A minimal, neutral community vote about whale-chan in Bilibili comments.",
   "scripts": {
-    "dev": "npx wrangler pages dev public --d1 DB=whale-vote --port 8788",
+    "dev": "npx wrangler pages dev public --d1 DB --port 8788",
     "deploy": "npx wrangler pages deploy public --project-name whale-vote",
     "db:init": "npx wrangler d1 execute whale-vote --file=./schema.sql --remote",
     "db:init:local": "npx wrangler d1 execute whale-vote --local --file=./schema.sql"
