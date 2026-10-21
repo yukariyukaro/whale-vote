@@ -115,7 +115,9 @@ async function refresh() {
 
 function ensureTurnstile() {
   if (!turnstileSiteKey) return Promise.resolve(null);
-  if (window.turnstile) return Promise.resolve(window.turnstile);
+  if (window.turnstile && typeof window.turnstile.render === "function") {
+    return Promise.resolve(window.turnstile);
+  }
 
   return new Promise((resolve, reject) => {
     const existing = document.querySelector("script[data-turnstile]");
@@ -274,6 +276,12 @@ function init() {
     setButtonsDisabled(true);
     els.leftCount.textContent = "—";
     els.rightCount.textContent = "—";
+    const note = document.getElementById("preview-note");
+    if (note) {
+      note.hidden = false;
+      const link = note.querySelector("a");
+      if (link && cfg.productionUrl) link.href = cfg.productionUrl;
+    }
     return;
   }
 

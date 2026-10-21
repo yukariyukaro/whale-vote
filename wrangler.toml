@@ -7,4 +7,4 @@ pages_build_output_dir = "public"
 [[d1_databases]]
 binding = "DB"
 database_name = "whale-vote"
-database_id = "REPLACE_WITH_D1_ID"
+database_id = "9d52e9c0-7abf-4e07-9b71-6deeb452079a"
