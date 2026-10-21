@@ -87,7 +87,12 @@ async function vote(side) {
 async function init() {
   if (location.protocol === "file:" || (/\.github\.io$/.test(location.hostname) && !apiBase)) {
     status.textContent = "静态预览，请前往正式投票。";
-    document.querySelector("#preview-note").hidden = false;
+    const note = document.querySelector("#preview-note");
+    note.hidden = false;
+    const link = document.createElement("a");
+    link.href = cfg.productionUrl || "https://whale-vote.pages.dev/";
+    link.textContent = "前往正式投票 →";
+    note.replaceChildren(link);
     buttons.forEach(b => b.disabled = true);
     return;
   }

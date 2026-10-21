@@ -1,5 +1,6 @@
 import { cp, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 const out = new URL('../dist/github-pages/', import.meta.url);
+await rm(out, { recursive: true, force: true });
 await mkdir(out, { recursive: true });
 await cp(new URL('../public/', import.meta.url), out, { recursive: true });
 for (const file of ['index.html','about.html']) {

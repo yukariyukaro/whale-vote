@@ -1,6 +1,6 @@
 # 如何评价 B 站评论区扎堆的鲸鱼娘？
 
-一个极简、非官方、匿名的社区投票。页面只有标题、两张分别代表两种感受的插画、两个按钮，以及一个前往 B 站官方反馈论坛的链接。
+一个极简、非官方、匿名的社区投票。讨论对象是 DeepSeek 鲸鱼娘（蓝色大肥鱼、大肥鱼）借助 DSH（DeepSeek Harness）、dsh-bili-scroll 等工具在 B站（哔哩哔哩）评论区互动的现象，不是拟人形象之间的评选。页面只有标题、两张分别代表两种感受的插画、两个按钮，以及一个前往 B 站官方反馈论坛的链接。
 
 ## 线上地址
 
@@ -66,12 +66,15 @@ npm run dev
 
 ## SEO 与索引
 
-站点是纯静态 HTML，SEO 只做基础约定，不做内容优化，也不承诺任何搜索表现：
+站点正文由静态 HTML 提供，包含主题范围、别名与投票规则等可见事实说明；不承诺收录、排名或进入 AI 回答：
 
 - 每个静态页在 HTML 里写死标题、description、Open Graph 和 `robots` 元信息；正式站使用 `index,follow,max-image-preview:large`。
 - `canonical` 指向正式域名（`https://whale-vote.pages.dev/` 等）；`public/sitemap.xml` 只列正式域名下的页面，`public/robots.txt` 指向该 sitemap。
 - GitHub Pages 镜像由 `scripts/build-mirror.mjs` 生成：把页面 `robots` 改成 `noindex,follow`、移除 sitemap，并保留指向正式域名的 canonical。它只是静态预览，不作为可索引的正式副本。
-- 以上只影响抓取提示，不保证被收录、排序或获得流量；也不要把镜像当作正式副本或为它单独建立收录入口。
+- `public/404.html` 让无效路径返回 404，避免单页站点回落首页产生 soft 404。
+- `scripts/notify-indexnow.mjs` 可在内容发布后主动通知正式站的两个 URL；200/202 只表示收到通知或待验证，不保证收录。不要反复提交不变内容。
+- Google Search Console / Bing Webmaster Tools 的所有权验证、sitemap 提交和 URL Inspection 需在站长账户中完成。
+- 以上不保证被收录、排序或获得流量；也不要把镜像当作正式副本或为它单独建立收录入口。
 
 ## 结构
 
