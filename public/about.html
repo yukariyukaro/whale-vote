@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>投票说明 · 如何评价 B 站评论区扎堆的鲸鱼娘？</title>
+  <link rel="icon" href="./assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="prose-page">
+    <p class="back"><a href="./index.html">← 回到投票</a></p>
+    <h1 class="prose-title">投票说明</h1>
+
+    <h2>这是什么</h2>
+    <p>这是一个非官方的小投票。标题和两张图只呈现两种常见感受，本站不判断哪一种感受更正确，也不代表任何组织、公司或平台的立场。</p>
+
+    <h2>怎么计票</h2>
+    <ul>
+      <li>匿名投票，不绑定 B 站账号，不收集手机号或邮箱。</li>
+      <li>一个浏览器一票；同一 IP 每天最多 25 次投票请求，超过会被限流。</li>
+      <li>启用 Cloudflare Turnstile 人机验证；检测到异常流量时，计票可能暂时冻结。</li>
+      <li>票数由本站后端聚合（Cloudflare Pages Functions + D1），不依赖页面上的本地数字。</li>
+    </ul>
+    <p>不绑定账号的代价是：无法保证绝对的“一人一票”。结果只代表参与者，不代表全站民意，也不构成统计意义上的抽样调查。</p>
+
+    <h2>结果怎么用</h2>
+    <p>投票结束后会公开聚合票数和方法说明。结果不会自动提交给 B 站；页面底部的官方反馈论坛链接，是留给愿意进一步表达意见的人。是否提交、提交什么，由你自己决定。</p>
+
+    <h2>隐私</h2>
+    <ul>
+      <li>Cookie 里只有一个随机 ID 和签名，用来避免同一浏览器重复投票。</li>
+      <li>IP 只以加盐哈希的形式用于频率限制，不保存原始 IP；哈希按天轮换。</li>
+      <li>不接入第三方统计脚本，不投放广告。</li>
+      <li>站点托管在 Cloudflare，访问日志由 Cloudflare 按其政策处理。</li>
+    </ul>
+
+    <h2>许可与署名</h2>
+    <p>角色形象来自社区二创：原作角色“溟月”由上善无形创作，鲸鱼娘二创由 ZipZipPipe 等社区作者共同迭代，遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>。本站插画由 AI 辅助生成，仅用于非商业的社区讨论；本站文字与插画同样按 CC BY-NC-SA 4.0 分享。</p>
+    <p>本站不放广告、不售卖任何商品，也不使用“官方”“正版”等表述。</p>
+
+    <h2>非官方声明</h2>
+    <p>本站与 DeepSeek（深度求索）、哔哩哔哩（B 站）均无隶属或背书关系。“B 站”仅用于指代讨论发生的平台。</p>
+
+    <h2>联系</h2>
+    <p>问题、建议或数据删除请求，请到 <a href="https://github.com/yukariyukaro/whale-vote/issues" target="_blank" rel="noopener">GitHub Issues</a>。</p>
+
+    <p class="updated">更新于 2026-10-21</p>
+  </main>
+</body>
+</html>

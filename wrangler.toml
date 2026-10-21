@@ -1,0 +1,10 @@
+name = "whale-vote"
+compatibility_date = "2026-10-01"
+pages_build_output_dir = "public"
+
+# Replace database_id with the id printed by:
+#   npx wrangler d1 create whale-vote
+[[d1_databases]]
+binding = "DB"
+database_name = "whale-vote"
+database_id = "REPLACE_WITH_D1_ID"
