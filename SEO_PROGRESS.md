@@ -28,6 +28,8 @@ node scripts/audit-discovery.mjs
 
 原始结果与排序写入 artifacts/seo-audits/<时间>/，不提交抓取内容/个人后台截图。
 
+2026-10-22 用户将站名改为「你怎么看在b站吃白饭的大肥鱼？」后，另增加普通/精确品牌查询作为诊断；四条原始基线保持不变，品牌词不计入“非站点主题查询前10”成功指标。请求失败记录为 unavailable，不当成零结果。
+
 ## 第 1 轮：2026-10-22（Asia/Shanghai）
 
 ### 实测，不是检查计数
@@ -53,6 +55,17 @@ node scripts/audit-discovery.mjs
 1. 若所有者完成 GSC URL-prefix 继续操作，取 HTML meta 验证标签、部署验证，再提交 sitemap 和请求索引；不要用会被重定向的 google*.html 验证方式。
 2. 检查 IndexNow/Bing 与固定查询的真实变化。
 3. 不增加无依据的 SEO 页、隐藏词、llms.txt 或假结构化数据。
+
+## 自动续轮 1/6：改名后复测（2026-10-22 01:59，Asia/Shanghai）
+
+- 当前正式站与镜像均为新名称「你怎么看在b站吃白饭的大肥鱼？」；GitHub Pages 部署成功。URL、投票规则与已有票未变。
+- 本轮没有再改标题/描述，没有重复提交 IndexNow，也没有新增外链。
+- Tavily advanced 固定四条基线 + 两条新品牌诊断查询，抽样前10均未出现正式站；两条自然主题命中数为0，尚未达到可发现性目标。
+- 持久记录：artifacts/seo-audits/2026-10-21T17-59-10.734Z/summary.json （UTC 路径，与上面的北京时间对应）。
+- 发现脚本使用 UTF-8 JSON 解析与原始参数调用，修复 Windows PowerShell 默认编码导致误读中文结果的诊断问题；命中与失败明确区分，不用换查询制造成功。
+- 正式站服务端 HTML 仍有初始票数（与 API 一致），robots/sitemap/404 正常；已批准的相关 bilibili-cli 文档链接 commit 仍存在。
+- GSC 仍停在用户选择暂缓的表单输入/授权边界，未获取验证标签，不能声称已验证/已请求索引。
+- 下一次有意义的搜索复测按每日10:00执行；若期间无新抓取证据，不继续快速重复查询或改名。目标保持 active，未宣称收录成功。
 
 ## 官方依据
 - https://developers.google.com/search/docs/crawling-indexing/links-crawlable
